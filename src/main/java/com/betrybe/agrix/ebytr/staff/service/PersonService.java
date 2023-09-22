@@ -4,22 +4,18 @@ import com.betrybe.agrix.ebytr.staff.entity.Person;
 import com.betrybe.agrix.ebytr.staff.exception.PersonNotFoundException;
 import com.betrybe.agrix.ebytr.staff.repository.PersonRepository;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Service layer class for handling persons business logic.
  */
+@RequiredArgsConstructor
 @Service
 public class PersonService {
 
   private final PersonRepository personRepository;
-
-  @Autowired
-  public PersonService(
-      PersonRepository personRepository) {
-    this.personRepository = personRepository;
-  }
 
   /**
    * Returns a person for a given ID.

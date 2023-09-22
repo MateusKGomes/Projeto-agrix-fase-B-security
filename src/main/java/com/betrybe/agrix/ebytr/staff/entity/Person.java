@@ -8,11 +8,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Class representing a person.
  */
+@Data
 @Entity
+@AllArgsConstructor
 public class Person {
 
   @Id
@@ -27,38 +32,6 @@ public class Person {
   private Role role;
 
   public Person() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public Role getRole() {
-    return role;
-  }
-
-  public void setRole(Role role) {
-    this.role = role;
   }
 
   @Override
