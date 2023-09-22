@@ -93,7 +93,7 @@ public class PersonServiceTest {
     newPersonExpected.setRole(Role.USER);
 
     Mockito.when(personRepository.findByUsername("Teste Name"))
-        .thenReturn(Optional.of(newPersonExpected));
+        .thenReturn(newPersonExpected);
 
     Person person = new Person();
     person.setUsername("Teste Name");

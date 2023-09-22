@@ -32,7 +32,8 @@ public class GlobalControllerAdvice {
   }
 
   @ExceptionHandler(PersonNotFoundException.class)
-  public ResponseEntity<String> PersonNotFoundException(FertilizerNotFoundException exception) {
+  public ResponseEntity<String> handlePersonNotFoundException(
+      FertilizerNotFoundException exception) {
     return ResponseEntity.status((HttpStatus.NOT_FOUND)).body(exception.getMessage());
   }
 

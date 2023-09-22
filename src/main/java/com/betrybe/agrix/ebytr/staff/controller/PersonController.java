@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * PersonController.
+ */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/persons")
@@ -20,6 +23,9 @@ public class PersonController {
 
   private final PersonService personService;
 
+  /**
+   * savePerson.
+   */
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public PersonResponseDto savePerson(@RequestBody Person person) {

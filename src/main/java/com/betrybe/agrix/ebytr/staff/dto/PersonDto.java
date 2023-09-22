@@ -6,7 +6,7 @@ import com.betrybe.agrix.ebytr.staff.security.Role;
 /**
  * PersonDto.
  */
-public record PersonDto(Long id, String username, String password, Role role ) {
+public record PersonDto(Long id, String username, String password, Role role) {
 
   /**
    * toEntity.
