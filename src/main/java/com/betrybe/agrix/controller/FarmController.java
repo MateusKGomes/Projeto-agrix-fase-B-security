@@ -4,12 +4,12 @@ import com.betrybe.agrix.controller.dto.CropsDto;
 import com.betrybe.agrix.controller.dto.FarmDto;
 import com.betrybe.agrix.entity.Crops;
 import com.betrybe.agrix.entity.Farm;
-import com.betrybe.agrix.service.CropService;
 import com.betrybe.agrix.service.FarmService;
 import com.betrybe.agrix.service.exception.FarmNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,8 +28,6 @@ public class FarmController {
 
   private final FarmService farmService;
 
-  private final CropService cropService;
-
   /**
    * saveFarm.
    */
@@ -46,6 +44,7 @@ public class FarmController {
    * findAllFarms.
    */
   @GetMapping
+  @Secured({"ROLE_USER", "ROLE_MANAGER", "ROLE_ADMIN"})
   @ResponseStatus(HttpStatus.OK)
   public List<FarmDto> findAllFarms() {
     List<Farm> farms = farmService.findAllFarms();
