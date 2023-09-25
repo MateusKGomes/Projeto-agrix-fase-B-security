@@ -1,5 +1,6 @@
 package com.betrybe.agrix.ebytr.staff.controller;
 
+import com.betrybe.agrix.ebytr.staff.dto.AuthResponseDto;
 import com.betrybe.agrix.ebytr.staff.dto.AuthenticationDto;
 import com.betrybe.agrix.ebytr.staff.service.TokenService;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,8 @@ public class AuthController {
    * login.
    */
   @PostMapping("/login")
-  public ResponseEntity<Object> login(@RequestBody AuthenticationDto authenticationDto) {
+  @ResponseStatus(HttpStatus.OK)
+  public AuthResponseDto login(@RequestBody AuthenticationDto authenticationDto) {
 
     UsernamePasswordAuthenticationToken usernamePassword =
         new UsernamePasswordAuthenticationToken(authenticationDto.username(),
@@ -43,8 +45,7 @@ public class AuthController {
     String token = tokenService.generateToken(userDetails);
 
 
-    return ResponseEntity.status(HttpStatus.OK).body(token);
+    return new AuthResponseDto(token);
   }
-
 
 }
